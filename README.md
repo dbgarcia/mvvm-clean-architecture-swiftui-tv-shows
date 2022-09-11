@@ -37,4 +37,4 @@ As we already have the data available in entities, to allocate them to be worked
 
 
 # 📱 Screen Flow
- <img src=""  alt="App-Video"  width="200">
+ <img src="https://github.com/dbgarcia/tv_series_app/blob/master/assets/app_video.gif"  alt="App-Video"  width="200">
