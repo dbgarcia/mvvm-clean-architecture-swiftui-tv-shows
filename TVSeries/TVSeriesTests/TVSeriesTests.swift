@@ -24,6 +24,22 @@ class TVSeriesTests: XCTestCase {
         // Any test you write for XCTest can be annotated as throws and async.
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        
+        
+        
+        //            let networking = Container.network()
+        //            let repository = ShowsRepository(networking: networking)
+        //            let viewModel = ShowsListViewModel(repository: repository)
+//                    let viewModel = ShowsListViewModel()
+//                    await viewModel.fetchAll()
+                    
+        //            let episodesRepository = EpisodesRepository(networking: networking)
+        //            let detailVM = DetailViewModel(episodesRepository: episodesRepository)
+        //            await detailVM.fetchEpisodes()
+        //
+        //            let searchRepository = SearchRepository(networking: networking)
+        //            let searchVM = SearchViewModel(searchRespository: searchRepository)
+        //            await searchVM.fetchSearch()
     }
 
     func testPerformanceExample() throws {
