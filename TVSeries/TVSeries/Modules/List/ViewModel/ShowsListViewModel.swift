@@ -14,7 +14,7 @@ final class ShowsListViewModel: ObservableObject {
     @Published private(set) var viewState: ViewState = .loading
     @Published private(set) var shows: [Showable] = []
     
-    init(repository: ShowsRepository = Container.showsListRepository()) {
+    init(repository: ShowsRepository = DIContainer.showsListRepository()) {
         self.repository = repository
     }
     
