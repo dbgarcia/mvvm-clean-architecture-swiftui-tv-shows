@@ -20,4 +20,8 @@ extension Showable {
     func toGenresFormated() -> String {
         return genres.joined(separator: " | ")
     }
+    
+    func toSummaryFormatted() -> String {
+        return summary.makeCleanerHtml()
+    }
 }
