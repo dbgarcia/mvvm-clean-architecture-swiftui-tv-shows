@@ -10,7 +10,7 @@ import Foundation
 final class SearchViewModel: ObservableObject {
     private let searchRespository: SearchRepository
     
-    init(searchRespository: SearchRepository = Container.searchRepository()) {
+    init(searchRespository: SearchRepository = DIContainer.searchRepository()) {
         self.searchRespository = searchRespository
     }
     

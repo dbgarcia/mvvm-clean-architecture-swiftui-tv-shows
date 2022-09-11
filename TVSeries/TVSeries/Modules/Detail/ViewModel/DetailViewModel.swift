@@ -14,7 +14,7 @@ final class DetailViewModel: ObservableObject {
     @Published private(set) var viewState: ViewState = .loading
     @Published private(set) var episodes: [Episodeable] = []
     
-    init(show: Showable, episodesRepository: EpisodesRepository) {
+    init(show: Showable, episodesRepository: EpisodesRepository = DIContainer.episodesRepository()) {
         self.show = show
         self.episodesRepository = episodesRepository
     }
