@@ -32,9 +32,9 @@ As we already have the data available in entities, to allocate them to be worked
 3. `SearchRepository` - get data from the search with query name
 
 # 📈 Code Coverage
-
+<img src="https://github.com/dbgarcia/tv_series_app/blob/master/assets/CodeCoverage.png"  alt="CodeCoverage"  width="200">
 ---
 
 
 # 📱 Screen Flow
- <img src=""  alt="App-Video"  width="200">
+ <img src="https://github.com/dbgarcia/tv_series_app/blob/master/assets/app_video.gif"  alt="App-Video"  width="200">

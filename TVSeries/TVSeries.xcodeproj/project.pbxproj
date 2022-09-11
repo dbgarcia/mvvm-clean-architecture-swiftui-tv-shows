@@ -61,13 +61,6 @@
 			remoteGlobalIDString = 9EEEFE1E28CD11B700C06522;
 			remoteInfo = TVSeries;
 		};
-		9EEEFE3A28CD11B800C06522 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EEEFE1728CD11B700C06522 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9EEEFE1E28CD11B700C06522;
-			remoteInfo = TVSeries;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -112,7 +105,6 @@
 		9EEEFE2928CD11B800C06522 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9EEEFE2F28CD11B800C06522 /* TVSeriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVSeriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EEEFE3328CD11B800C06522 /* TVSeriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesTests.swift; sourceTree = "<group>"; };
-		9EEEFE3928CD11B800C06522 /* TVSeriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVSeriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EEEFE5928CD130E00C06522 /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetwork.swift; sourceTree = "<group>"; };
 		9EEEFE5B28CD136000C06522 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		9EEEFE5D28CD18F700C06522 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
@@ -129,13 +121,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9EEEFE2C28CD11B800C06522 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9EEEFE3628CD11B800C06522 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -338,7 +323,6 @@
 			children = (
 				9EEEFE1F28CD11B700C06522 /* TVSeries.app */,
 				9EEEFE2F28CD11B800C06522 /* TVSeriesTests.xctest */,
-				9EEEFE3928CD11B800C06522 /* TVSeriesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -542,24 +526,6 @@
 			productReference = 9EEEFE2F28CD11B800C06522 /* TVSeriesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9EEEFE3828CD11B800C06522 /* TVSeriesUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9EEEFE4928CD11B800C06522 /* Build configuration list for PBXNativeTarget "TVSeriesUITests" */;
-			buildPhases = (
-				9EEEFE3528CD11B800C06522 /* Sources */,
-				9EEEFE3628CD11B800C06522 /* Frameworks */,
-				9EEEFE3728CD11B800C06522 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9EEEFE3B28CD11B800C06522 /* PBXTargetDependency */,
-			);
-			name = TVSeriesUITests;
-			productName = TVSeriesUITests;
-			productReference = 9EEEFE3928CD11B800C06522 /* TVSeriesUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -574,10 +540,6 @@
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					9EEEFE2E28CD11B800C06522 = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 9EEEFE1E28CD11B700C06522;
-					};
-					9EEEFE3828CD11B800C06522 = {
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 9EEEFE1E28CD11B700C06522;
 					};
@@ -601,7 +563,6 @@
 			targets = (
 				9EEEFE1E28CD11B700C06522 /* TVSeries */,
 				9EEEFE2E28CD11B800C06522 /* TVSeriesTests */,
-				9EEEFE3828CD11B800C06522 /* TVSeriesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -617,13 +578,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9EEEFE2D28CD11B800C06522 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9EEEFE3728CD11B800C06522 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -688,13 +642,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9EEEFE3528CD11B800C06522 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -702,11 +649,6 @@
 			isa = PBXTargetDependency;
 			target = 9EEEFE1E28CD11B700C06522 /* TVSeries */;
 			targetProxy = 9EEEFE3028CD11B800C06522 /* PBXContainerItemProxy */;
-		};
-		9EEEFE3B28CD11B800C06522 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9EEEFE1E28CD11B700C06522 /* TVSeries */;
-			targetProxy = 9EEEFE3A28CD11B800C06522 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -919,40 +861,6 @@
 			};
 			name = Release;
 		};
-		9EEEFE4A28CD11B800C06522 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.TVSeriesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TVSeries;
-			};
-			name = Debug;
-		};
-		9EEEFE4B28CD11B800C06522 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.TVSeriesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TVSeries;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -979,15 +887,6 @@
 			buildConfigurations = (
 				9EEEFE4728CD11B800C06522 /* Debug */,
 				9EEEFE4828CD11B800C06522 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9EEEFE4928CD11B800C06522 /* Build configuration list for PBXNativeTarget "TVSeriesUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9EEEFE4A28CD11B800C06522 /* Debug */,
-				9EEEFE4B28CD11B800C06522 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
