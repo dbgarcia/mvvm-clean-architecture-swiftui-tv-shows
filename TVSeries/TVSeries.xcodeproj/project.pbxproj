@@ -49,6 +49,10 @@
 		9E8CE3A828CF85BB002D1111 /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE3A728CF85BB002D1111 /* SearchViewState.swift */; };
 		9E8CE3AA28CF8B72002D1111 /* BaseSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE3A928CF8B72002D1111 /* BaseSearchViewModel.swift */; };
 		9E8CE3AC28CF8C0C002D1111 /* BaseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE3AB28CF8C0C002D1111 /* BaseDetailViewModel.swift */; };
+		9E8CE3B028CF9F23002D1111 /* ShowsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE3AF28CF9F23002D1111 /* ShowsRepositoryTests.swift */; };
+		9E8CE3B228CF9F8D002D1111 /* MockShowsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE3B128CF9F8D002D1111 /* MockShowsRepository.swift */; };
+		9E8CE3B528CFA649002D1111 /* EpisodesRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE3B428CFA649002D1111 /* EpisodesRepositoryTests.swift */; };
+		9E8CE3B728CFA662002D1111 /* MockEpisodesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE3B628CFA662002D1111 /* MockEpisodesRepository.swift */; };
 		9EEEFE2328CD11B700C06522 /* TVSeriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEEFE2228CD11B700C06522 /* TVSeriesApp.swift */; };
 		9EEEFE2528CD11B700C06522 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEEFE2428CD11B700C06522 /* WelcomeView.swift */; };
 		9EEEFE2728CD11B800C06522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EEEFE2628CD11B800C06522 /* Assets.xcassets */; };
@@ -112,6 +116,10 @@
 		9E8CE3A728CF85BB002D1111 /* SearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewState.swift; sourceTree = "<group>"; };
 		9E8CE3A928CF8B72002D1111 /* BaseSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSearchViewModel.swift; sourceTree = "<group>"; };
 		9E8CE3AB28CF8C0C002D1111 /* BaseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDetailViewModel.swift; sourceTree = "<group>"; };
+		9E8CE3AF28CF9F23002D1111 /* ShowsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRepositoryTests.swift; sourceTree = "<group>"; };
+		9E8CE3B128CF9F8D002D1111 /* MockShowsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockShowsRepository.swift; sourceTree = "<group>"; };
+		9E8CE3B428CFA649002D1111 /* EpisodesRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesRepositoryTests.swift; sourceTree = "<group>"; };
+		9E8CE3B628CFA662002D1111 /* MockEpisodesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEpisodesRepository.swift; sourceTree = "<group>"; };
 		9EEEFE1F28CD11B700C06522 /* TVSeries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVSeries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EEEFE2228CD11B700C06522 /* TVSeriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesApp.swift; sourceTree = "<group>"; };
 		9EEEFE2428CD11B700C06522 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -360,6 +368,33 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		9E8CE3AD28CF9E7D002D1111 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CE3B328CFA630002D1111 /* Detail */,
+				9E8CE3AE28CF9E95002D1111 /* List */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		9E8CE3AE28CF9E95002D1111 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CE3AF28CF9F23002D1111 /* ShowsRepositoryTests.swift */,
+				9E8CE3B128CF9F8D002D1111 /* MockShowsRepository.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		9E8CE3B328CFA630002D1111 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CE3B428CFA649002D1111 /* EpisodesRepositoryTests.swift */,
+				9E8CE3B628CFA662002D1111 /* MockEpisodesRepository.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		9EEEFE1628CD11B700C06522 = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +438,7 @@
 			children = (
 				9E8CE33728CD369F002D1111 /* Core */,
 				9E8CE33628CD3696002D1111 /* Modules */,
+				9E8CE3AD28CF9E7D002D1111 /* Repositories */,
 				9EEEFE3328CD11B800C06522 /* TVSeriesTests.swift */,
 			);
 			path = TVSeriesTests;
@@ -698,6 +734,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E8CE3B528CFA649002D1111 /* EpisodesRepositoryTests.swift in Sources */,
+				9E8CE3B028CF9F23002D1111 /* ShowsRepositoryTests.swift in Sources */,
+				9E8CE3B228CF9F8D002D1111 /* MockShowsRepository.swift in Sources */,
+				9E8CE3B728CFA662002D1111 /* MockEpisodesRepository.swift in Sources */,
 				9EEEFE3428CD11B800C06522 /* TVSeriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

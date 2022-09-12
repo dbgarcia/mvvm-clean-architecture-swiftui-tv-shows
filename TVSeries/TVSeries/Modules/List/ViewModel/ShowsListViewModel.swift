@@ -47,11 +47,7 @@ final class ShowsListViewModel: ObservableObject, BaseShowsViewModel {
             guard isLoadingMore(with: show) else { return }
             currentPage += 1
             let newShows = try await repository.fetchShows(of: currentPage)
-            debugPrint(newShows.count)
             shows.append(contentsOf: newShows)
-            debugPrint(shows.count)
-            viewState = .loading
-            viewState = .finish
         } catch {
             debugPrint(error.localizedDescription)
         }
