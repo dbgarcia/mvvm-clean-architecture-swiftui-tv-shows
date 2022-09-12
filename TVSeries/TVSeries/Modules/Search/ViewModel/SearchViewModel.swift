@@ -7,7 +7,20 @@
 
 import Foundation
 
-final class SearchViewModel: ObservableObject {
+final class SearchViewModel: ObservableObject, BaseSearchViewModel {
+    var isVisibleLoading: Bool {
+        return viewState == .loading
+    }
+    
+    var isVisibleEmpty: Bool {
+        return viewState == .empty
+    }
+    
+    var isVisibleList: Bool {
+        return viewState == .finish
+    }
+    
+    
     private let searchRespository: SearchRepository
     private var searchViewState: SearchViewState = .loading
     

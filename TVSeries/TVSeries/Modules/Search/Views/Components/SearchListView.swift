@@ -12,7 +12,7 @@ struct SearchListView: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack(alignment: .leading, spacing: 20) {
+            LazyVStack(alignment: .leading, spacing: 12) {
                 ForEach(shows, id: \.id) { show in
                     NavigationLink(destination: DetailView(viewModel: DetailViewModel(show: show))) {
                         TVShowRowView(show: show)

@@ -21,4 +21,8 @@ struct EpisodesRequest: BaseRequest {
     var method: BaseMethod {
         return .GET
     }
+    
+    var queryItems: [String : String]? {
+        return nil
+    }
 }

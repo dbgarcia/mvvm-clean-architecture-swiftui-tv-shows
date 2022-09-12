@@ -13,8 +13,3 @@ protocol BaseRequest {
     var method: BaseMethod { get }
     var queryItems: [String: String]? { get }
 }
-
-extension BaseRequest {
-    // Opcional -> Algumas APIs tem e outras não
-    var queryItems: [String: String]? { return nil }
-}

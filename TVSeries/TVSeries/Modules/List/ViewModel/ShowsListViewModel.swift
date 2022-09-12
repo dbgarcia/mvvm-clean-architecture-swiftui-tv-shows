@@ -7,11 +7,23 @@
 
 import Foundation
 
-final class ShowsListViewModel: ObservableObject, BaseShowsViewModel {    
+final class ShowsListViewModel: ObservableObject, BaseShowsViewModel {
+    var isVisibleLoading: Bool {
+        return viewState == .loading
+    }
+    
+    var isVisibleEmpty: Bool {
+        return viewState == .empty
+    }
+    
+    var isVisibleList: Bool {
+        return viewState == .finish
+    }
+    
     private var currentPage = 0
     private var repository: ShowsRepository
+    private var viewState: ViewState = .loading
     
-    @Published private(set) var viewState: ViewState = .loading
     @Published private(set) var shows: [Showable] = []
 
     init(repository: ShowsRepository = DIContainer.showsListRepository()) {
@@ -30,13 +42,23 @@ final class ShowsListViewModel: ObservableObject, BaseShowsViewModel {
     }
     
     @MainActor
-    func fetchMoreShows() async {
+    func fetchMoreShows(of show: Showable) async {
         do {
+            guard isLoadingMore(with: show) else { return }
             currentPage += 1
             let newShows = try await repository.fetchShows(of: currentPage)
+            debugPrint(newShows.count)
             shows.append(contentsOf: newShows)
+            debugPrint(shows.count)
+            viewState = .loading
+            viewState = .finish
         } catch {
             debugPrint(error.localizedDescription)
         }
+    }
+    
+    func isLoadingMore(with show: Showable) -> Bool {
+        guard let last = shows.last else { return false }
+        return last.id == show.id
     }
 }

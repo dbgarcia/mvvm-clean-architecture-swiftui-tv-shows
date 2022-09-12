@@ -23,13 +23,13 @@ struct SearchView: View {
                 ZStack {
                     
                     EmptyView(systemName: "exclamationmark.triangle.fill", message: "No results TV Shows...")
-                        .visiblity(viewModel.viewState == .empty)
+                        .visiblity(viewModel.isVisibleEmpty)
                     
                     LoadingView()
-                        .visiblity(viewModel.viewState == .loading)
+                        .visiblity(viewModel.isVisibleLoading)
                     
                     SearchListView(shows: viewModel.shows)
-                        .visiblity(viewModel.viewState == .finish)
+                        .visiblity(viewModel.isVisibleList)
                 }
             }
             

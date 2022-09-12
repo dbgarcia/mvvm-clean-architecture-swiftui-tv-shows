@@ -8,6 +8,10 @@
 import Foundation
 
 protocol BaseShowsViewModel {
+    var isVisibleLoading: Bool { get }
+    var isVisibleEmpty: Bool { get }
+    var isVisibleList: Bool { get }
+    
     func fetchShows() async
-    func fetchMoreShows() async
+    func fetchMoreShows(of show: Showable) async
 }
