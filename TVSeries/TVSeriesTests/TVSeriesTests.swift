@@ -10,43 +10,49 @@ import XCTest
 
 class TVSeriesTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testShowsRepositoryIntegration() async throws {
         
+        let network = DIContainer.network()
+        let repository = ShowsRepository(network: network)
+        let viewModel = ShowsListViewModel(repository: repository)
         
+        // when
+        await viewModel.fetchShows()
         
-        //            let networking = Container.network()
-        //            let repository = ShowsRepository(networking: networking)
-        //            let viewModel = ShowsListViewModel(repository: repository)
-//                    let viewModel = ShowsListViewModel()
-//                    await viewModel.fetchAll()
-                    
-        //            let episodesRepository = EpisodesRepository(networking: networking)
-        //            let detailVM = DetailViewModel(episodesRepository: episodesRepository)
-        //            await detailVM.fetchEpisodes()
-        //
-        //            let searchRepository = SearchRepository(networking: networking)
-        //            let searchVM = SearchViewModel(searchRespository: searchRepository)
-        //            await searchVM.fetchSearch()
+        // then
+        XCTAssertFalse(viewModel.isVisibleLoading)
+        XCTAssertTrue(viewModel.shows.count > 0)
+        XCTAssertTrue(viewModel.isVisibleList)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testEpisodesRepositoryIntegration() async throws {
+        
+        let show = ShowResponse(id: 1, name: "Example 1", genres: [])
+        let network = DIContainer.network()
+        let episodesRepository = EpisodesRepository(network: network)
+        let viewModel = DetailViewModel(show: show, episodesRepository: episodesRepository)
+        
+        // when
+        await viewModel.fetchEpisodes()
+        
+        // then
+        XCTAssertFalse(viewModel.isVisibleLoading)
+        XCTAssertTrue(viewModel.episodes.count > 0)
+        XCTAssertTrue(viewModel.isVisibleList)
     }
-
+    
+    func testSearchRepositoryIntegration() async throws {
+        
+        let network = DIContainer.network()
+        let searchRepository = SearchRepository(network: network)
+        let viewModel = SearchViewModel(searchRespository: searchRepository)
+        
+        // when
+        await viewModel.fetchSearch(with: "arrow")
+        
+        // then
+        XCTAssertFalse(viewModel.isVisibleLoading)
+        XCTAssertTrue(viewModel.shows.count > 0)
+        XCTAssertTrue(viewModel.isVisibleList)
+    }
 }

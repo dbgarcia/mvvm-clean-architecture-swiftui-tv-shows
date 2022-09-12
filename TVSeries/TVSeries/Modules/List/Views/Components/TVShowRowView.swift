@@ -16,6 +16,7 @@ struct TVShowRowView: View {
                 image.resizable().scaledToFit()
             } placeholder: {
                 Color.gray
+                    .padding()
             }
             .frame(width: 100, height: 100)
             .clipShape(RoundedRectangle(cornerRadius: 5))

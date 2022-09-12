@@ -11,18 +11,34 @@ struct TVShowsView: View {
     @StateObject var viewModel: ShowsListViewModel
     
     var body: some View {
-        ZStack {
-            EmptyView(systemName: "exclamationmark.triangle.fill", message: "Empty TV Shows...")
-                .visiblity(viewModel.viewState == .empty)
+        NavigationView {
+            ZStack {
+                
+                LoadingView()
+                    .visiblity(viewModel.isVisibleLoading)
+                
+                TVShowListView()
+                    .environmentObject(viewModel)
+                    .visiblity(viewModel.isVisibleList)
+
+                EmptyView(systemName: "exclamationmark.triangle.fill", message: "Empty TV Shows...")
+                    .visiblity(viewModel.isVisibleEmpty)
+            }
             
-            LoadingView()
-                .visiblity(viewModel.viewState == .loading)
-                .task {
-                    await viewModel.fetchShows()
-                }
+            .task {
+                await viewModel.fetchShows()
+            }
             
-            TVShowListView(shows: viewModel.shows)
-                .visiblity(viewModel.viewState == .finish)
+            .navigationBarHidden(true)
         }
+    }
+}
+
+struct TVShowsView_Previews: PreviewProvider {
+    static var previews: some View {
+        let network = NetworkManager()
+        let repository = ShowsRepository(network: network)
+        let viewModel = ShowsListViewModel(repository: repository)
+        TVShowsView(viewModel: viewModel)
     }
 }

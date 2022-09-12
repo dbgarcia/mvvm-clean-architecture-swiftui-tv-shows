@@ -20,7 +20,7 @@ It is extremely important to evaluate the architectural structure of the product
 
 # 🚀 TV Maze data
 The project works with the TV Maze API (free public API) through the requests:
-1. `GET` => https://api.tvmaze.com/shows
+1. `GET` => https://api.tvmaze.com/shows?page=0
 2. `GET` => https://api.tvmaze.com/shows/1/episodes
 3. `GET` => https://api.tvmaze.com/search/shows?q=arrow
 
