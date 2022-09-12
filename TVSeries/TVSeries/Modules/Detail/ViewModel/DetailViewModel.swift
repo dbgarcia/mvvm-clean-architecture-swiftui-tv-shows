@@ -32,11 +32,3 @@ final class DetailViewModel: ObservableObject {
         viewState = episodes.isEmpty ? .empty : .finish
     }
 }
-
-extension DetailViewModel {
-    enum ViewState {
-        case empty
-        case loading
-        case finish
-    }
-}

@@ -11,7 +11,6 @@ struct ShowResponse: Showable, Decodable {
     var id: Int
     var name: String
     var genres: [String]
-    var status: String
-    var summary: String
+    var summary: String?
     var image: ImageEntity?
 }
