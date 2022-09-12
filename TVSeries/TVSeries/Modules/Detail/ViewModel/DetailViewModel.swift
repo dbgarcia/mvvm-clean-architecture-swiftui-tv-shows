@@ -7,11 +7,25 @@
 
 import Foundation
 
-final class DetailViewModel: ObservableObject {
-    private let episodesRepository: EpisodesRepository
-    private(set) var show: Showable
+final class DetailViewModel: ObservableObject, BaseDetailViewModel {
+    var isVisibleLoading: Bool {
+        return viewState == .loading
+    }
     
-    @Published private(set) var viewState: ViewState = .loading
+    var isVisibleEmpty: Bool {
+        return viewState == .empty
+    }
+    
+    var isVisibleList: Bool {
+        return viewState == .finish
+    }
+    
+    
+    
+    private let episodesRepository: EpisodesRepository
+    private var viewState: ViewState = .loading
+    
+    private(set) var show: Showable
     @Published private(set) var episodes: [Episodeable] = []
     
     init(show: Showable, episodesRepository: EpisodesRepository = DIContainer.episodesRepository()) {

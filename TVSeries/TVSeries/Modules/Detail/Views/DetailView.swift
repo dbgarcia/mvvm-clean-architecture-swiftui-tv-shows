@@ -19,20 +19,31 @@ struct DetailView: View {
             
             ZStack {
                 DetailEpisodesView(episodes: viewModel.episodes)
-                    .visiblity(viewModel.viewState == .finish)
+                    .visiblity(viewModel.isVisibleList)
                 
                 EmptyView(systemName: "exclamationmark.triangle.fill", message: "Empty Episodes...")
-                    .visiblity(viewModel.viewState == .empty)
+                    .visiblity(viewModel.isVisibleEmpty)
                     .hidden()
                 
                 LoadingView()
-                    .visiblity(viewModel.viewState == .loading)
-                    .task {
-                        await viewModel.fetchEpisodes()
-                    }
+                    .visiblity(viewModel.isVisibleLoading)
+            }
+            
+            .task {
+                await viewModel.fetchEpisodes()
             }
         }
         
         .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        let show = ShowResponse(id: 1, name: "Example", genres: ["Action"])
+        let network = NetworkManager()
+        let repository = EpisodesRepository(network: network)
+        let viewModel = DetailViewModel(show: show, episodesRepository: repository)
+        DetailView(viewModel: viewModel)
     }
 }

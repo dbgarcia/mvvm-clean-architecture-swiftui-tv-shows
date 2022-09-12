@@ -8,22 +8,26 @@
 import SwiftUI
 
 struct TVShowListView: View {
-    var shows: [Showable]
+    @EnvironmentObject var viewModel: ShowsListViewModel
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 20) {
-                    ForEach(shows, id: \.name) { show in
-                        NavigationLink(destination: DetailView(viewModel: DetailViewModel(show: show))) {
+        ScrollView {
+            LazyVStack(alignment: .leading, spacing: 12) {
+                ForEach(viewModel.shows, id: \.id) { show in
+                    NavigationLink(destination: DetailView(viewModel: DetailViewModel(show: show))) {
+                        VStack {
                             TVShowRowView(show: show)
+
+                            if viewModel.isLoadingMore(with: show) {
+                                LoadingView()
+                                    .task {
+                                        await viewModel.fetchMoreShows(of: show)
+                                    }
+                            }
                         }
                     }
                 }
             }
-            .padding(.top)
-            
-            .navigationBarHidden(true)
         }
     }
 }

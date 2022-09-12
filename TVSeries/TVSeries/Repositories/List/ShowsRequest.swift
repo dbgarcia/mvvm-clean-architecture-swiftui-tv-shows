@@ -22,7 +22,7 @@ struct ShowsRequest: BaseRequest {
         return .GET
     }
     
-    var queryItems: [String : String] {
+    var queryItems: [String : String]? {
         return ["page": "\(self.page)"]
     }
 }

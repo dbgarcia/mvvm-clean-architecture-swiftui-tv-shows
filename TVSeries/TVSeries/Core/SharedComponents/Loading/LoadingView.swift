@@ -13,3 +13,10 @@ struct LoadingView: View {
             .progressViewStyle(CircularProgressViewStyle(tint: Color.black))
     }
 }
+
+
+struct LoadingView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoadingView()
+    }
+}
