@@ -8,15 +8,15 @@
 import Foundation
 
 final class EpisodesRepository: BaseEpisodesRepository {
-    private let networking: NetworkManager
+    private let network: NetworkManager
     
-    init(networking: NetworkManager) {
-        self.networking = networking
+    init(network: NetworkManager) {
+        self.network = network
     }
     
     func fetchEpisodes(of idShow: Int) async throws -> [Episodeable] {
         let baseRequest = EpisodesRequest(idShow: idShow)
-        let episodes = try await networking.request(with: baseRequest, responseType: [EpisodeResponse].self)
+        let episodes = try await network.request(with: baseRequest, responseType: [EpisodeResponse].self)
         return episodes
     }
 }

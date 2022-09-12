@@ -8,15 +8,15 @@
 import Foundation
 
 final class SearchRepository: BaseSearchRepository {
-    private let networking: NetworkManager
+    private let network: NetworkManager
     
-    init(networking: NetworkManager) {
-        self.networking = networking
+    init(network: NetworkManager) {
+        self.network = network
     }
     
-    func fetchSearchShows(of name: String) async throws -> [Showable] {
+    func fetchSearchShows(with name: String) async throws -> [Showable] {
         let baseRequest = SearchRequest(name: name)
-        let response = try await networking.request(with: baseRequest, responseType: [SearchResponse].self)
+        let response = try await network.request(with: baseRequest, responseType: [SearchResponse].self)
         let shows = response.map { $0.show }
         return shows
     }

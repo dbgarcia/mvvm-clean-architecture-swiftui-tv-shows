@@ -8,5 +8,5 @@
 import Foundation
 
 protocol BaseSearchRepository {
-    func fetchSearchShows(of name: String) async throws -> [Showable]
+    func fetchSearchShows(with name: String) async throws -> [Showable]
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class ShowsListViewModel: ObservableObject {
-    private var page = 0
+final class ShowsListViewModel: ObservableObject, BaseShowsViewModel {    
+    private var currentPage = 0
     private var repository: ShowsRepository
     
     @Published private(set) var viewState: ViewState = .loading
@@ -19,23 +19,24 @@ final class ShowsListViewModel: ObservableObject {
     }
     
     @MainActor
-    func fetchAll() async {
+    func fetchShows() async {
         do {
             viewState = .loading
-            shows = try await repository.fetchShows(of: page)
+            shows = try await repository.fetchShows(of: currentPage)
             viewState = .finish
+        } catch {
+            viewState = shows.isEmpty ? .empty : .finish
+        }
+    }
+    
+    @MainActor
+    func fetchMoreShows() async {
+        do {
+            currentPage += 1
+            let newShows = try await repository.fetchShows(of: currentPage)
+            shows.append(contentsOf: newShows)
         } catch {
             debugPrint(error.localizedDescription)
         }
-        
-        viewState = shows.isEmpty ? .empty : .finish
-    }
-}
-
-extension ShowsListViewModel {
-    enum ViewState {
-        case empty
-        case loading
-        case finish
     }
 }
