@@ -8,15 +8,15 @@
 import Foundation
 
 final class ShowsRepository: BaseShowsRepository {
-    private let networking: NetworkManager
+    private let network: NetworkManager
     
-    init(networking: NetworkManager) {
-        self.networking = networking
+    init(network: NetworkManager) {
+        self.network = network
     }
     
     func fetchShows(of page: Int) async throws -> [Showable] {
         let baseRequest = ShowsRequest(page: page)
-        let shows = try await networking.request(with: baseRequest, responseType: [ShowResponse].self)
+        let shows = try await network.request(with: baseRequest, responseType: [ShowResponse].self)
         return shows
     }
 }
