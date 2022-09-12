@@ -42,6 +42,11 @@
 		9E8CE38A28CDC73A002D1111 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE38928CDC73A002D1111 /* LoadingView.swift */; };
 		9E8CE38C28CE59E6002D1111 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE38B28CE59E6002D1111 /* View.swift */; };
 		9E8CE38E28CE5AF1002D1111 /* TVShowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE38D28CE5AF1002D1111 /* TVShowsView.swift */; };
+		9E8CE39B28CEC22A002D1111 /* BaseShowsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE39A28CEC22A002D1111 /* BaseShowsViewModel.swift */; };
+		9E8CE3A028CF73E0002D1111 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE39F28CF73E0002D1111 /* SearchBarView.swift */; };
+		9E8CE3A328CF7BBC002D1111 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE3A228CF7BBC002D1111 /* SearchListView.swift */; };
+		9E8CE3A628CF8584002D1111 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE3A528CF8584002D1111 /* ViewState.swift */; };
+		9E8CE3A828CF85BB002D1111 /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE3A728CF85BB002D1111 /* SearchViewState.swift */; };
 		9EEEFE2328CD11B700C06522 /* TVSeriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEEFE2228CD11B700C06522 /* TVSeriesApp.swift */; };
 		9EEEFE2528CD11B700C06522 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEEFE2428CD11B700C06522 /* WelcomeView.swift */; };
 		9EEEFE2728CD11B800C06522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EEEFE2628CD11B800C06522 /* Assets.xcassets */; };
@@ -98,6 +103,11 @@
 		9E8CE38928CDC73A002D1111 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9E8CE38B28CE59E6002D1111 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		9E8CE38D28CE5AF1002D1111 /* TVShowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsView.swift; sourceTree = "<group>"; };
+		9E8CE39A28CEC22A002D1111 /* BaseShowsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseShowsViewModel.swift; sourceTree = "<group>"; };
+		9E8CE39F28CF73E0002D1111 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		9E8CE3A228CF7BBC002D1111 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
+		9E8CE3A528CF8584002D1111 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		9E8CE3A728CF85BB002D1111 /* SearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewState.swift; sourceTree = "<group>"; };
 		9EEEFE1F28CD11B700C06522 /* TVSeries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVSeries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EEEFE2228CD11B700C06522 /* TVSeriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesApp.swift; sourceTree = "<group>"; };
 		9EEEFE2428CD11B700C06522 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -184,20 +194,19 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		9E8CE33A28CD3C48002D1111 /* Repository */ = {
+		9E8CE33A28CD3C48002D1111 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				9E8CE35028CD4D8E002D1111 /* BaseEpisodesRepository.swift */,
 				9E8CE33D28CD3C87002D1111 /* EpisodesRepository.swift */,
 				9E8CE34E28CD481D002D1111 /* EpisodesRequest.swift */,
 			);
-			path = Repository;
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		9E8CE35228CD4E5E002D1111 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				9E8CE35328CD4E69002D1111 /* Repository */,
 				9E8CE35428CD4E70002D1111 /* Model */,
 				9E8CE35528CD4E78002D1111 /* ViewModel */,
 				9E8CE35628CD4E80002D1111 /* Views */,
@@ -205,14 +214,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		9E8CE35328CD4E69002D1111 /* Repository */ = {
+		9E8CE35328CD4E69002D1111 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				9E8CE35728CD4EC1002D1111 /* SearchRepository.swift */,
 				9E8CE35B28CD51BF002D1111 /* SearchRequest.swift */,
 				9E8CE35F28CD545A002D1111 /* BaseSearchRepository.swift */,
 			);
-			path = Repository;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		9E8CE35428CD4E70002D1111 /* Model */ = {
@@ -234,6 +243,7 @@
 		9E8CE35628CD4E80002D1111 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9E8CE3A128CF7B9A002D1111 /* Components */,
 				9E8CE36328CD77EC002D1111 /* SearchView.swift */,
 			);
 			path = Views;
@@ -267,6 +277,7 @@
 		9E8CE36F28CD954F002D1111 /* SharedComponents */ = {
 			isa = PBXGroup;
 			children = (
+				9E8CE39E28CF73CA002D1111 /* Search */,
 				9E8CE37D28CDB854002D1111 /* Loading */,
 				9E8CE37228CD9ADE002D1111 /* Empty */,
 			);
@@ -309,6 +320,41 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		9E8CE39C28CEC431002D1111 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CE33A28CD3C48002D1111 /* Detail */,
+				9EEEFE5628CD125A00C06522 /* List */,
+				9E8CE35328CD4E69002D1111 /* Search */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		9E8CE39E28CF73CA002D1111 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CE39F28CF73E0002D1111 /* SearchBarView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		9E8CE3A128CF7B9A002D1111 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CE3A228CF7BBC002D1111 /* SearchListView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9E8CE3A428CF856A002D1111 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CE3A528CF8584002D1111 /* ViewState.swift */,
+				9E8CE3A728CF85BB002D1111 /* SearchViewState.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		9EEEFE1628CD11B700C06522 = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +378,7 @@
 			children = (
 				9EEEFE5528CD124900C06522 /* Core */,
 				9EEEFE4C28CD11D700C06522 /* Modules */,
+				9E8CE39C28CEC431002D1111 /* Repositories */,
 				9EEEFE2628CD11B800C06522 /* Assets.xcassets */,
 				9EEEFE2828CD11B800C06522 /* Preview Content */,
 			);
@@ -370,7 +417,6 @@
 		9EEEFE4D28CD11EC00C06522 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				9EEEFE5628CD125A00C06522 /* Repository */,
 				9EEEFE5428CD123300C06522 /* Model */,
 				9EEEFE5328CD122D00C06522 /* ViewModel */,
 				9EEEFE5228CD122200C06522 /* Views */,
@@ -381,7 +427,6 @@
 		9EEEFE4E28CD11FB00C06522 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				9E8CE33A28CD3C48002D1111 /* Repository */,
 				9EEEFE5128CD121800C06522 /* Model */,
 				9EEEFE5028CD121000C06522 /* ViewModel */,
 				9EEEFE4F28CD120B00C06522 /* Views */,
@@ -428,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				9E8CE32728CD22D7002D1111 /* ShowsListViewModel.swift */,
+				9E8CE39A28CEC22A002D1111 /* BaseShowsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -445,6 +491,7 @@
 		9EEEFE5528CD124900C06522 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9E8CE3A428CF856A002D1111 /* Enum */,
 				9E8CE36F28CD954F002D1111 /* SharedComponents */,
 				9E8CE36928CD7D07002D1111 /* Dependecies */,
 				9EEEFE5F28CD1B1300C06522 /* Extensions */,
@@ -453,14 +500,14 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		9EEEFE5628CD125A00C06522 /* Repository */ = {
+		9EEEFE5628CD125A00C06522 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				9E8CE33128CD2EA0002D1111 /* BaseShowsRepository.swift */,
 				9E8CE32928CD2406002D1111 /* ShowsRequest.swift */,
 				9E8CE32328CD1FD4002D1111 /* ShowsRespository.swift */,
 			);
-			path = Repository;
+			path = List;
 			sourceTree = "<group>";
 		};
 		9EEEFE5828CD126800C06522 /* Network */ = {
@@ -601,7 +648,11 @@
 				9E8CE36028CD545A002D1111 /* BaseSearchRepository.swift in Sources */,
 				9E8CE33228CD2EA0002D1111 /* BaseShowsRepository.swift in Sources */,
 				9E8CE33028CD28BA002D1111 /* NetworkManager.swift in Sources */,
+				9E8CE3A028CF73E0002D1111 /* SearchBarView.swift in Sources */,
+				9E8CE39B28CEC22A002D1111 /* BaseShowsViewModel.swift in Sources */,
+				9E8CE3A328CF7BBC002D1111 /* SearchListView.swift in Sources */,
 				9E8CE32A28CD2406002D1111 /* ShowsRequest.swift in Sources */,
+				9E8CE3A628CF8584002D1111 /* ViewState.swift in Sources */,
 				9EEEFE5A28CD130E00C06522 /* BaseNetwork.swift in Sources */,
 				9E8CE37728CD9DA5002D1111 /* TVShowRowView.swift in Sources */,
 				9E8CE32828CD22D7002D1111 /* ShowsListViewModel.swift in Sources */,
@@ -625,6 +676,7 @@
 				9E8CE37F28CDB867002D1111 /* DetailEpisodeRowView.swift in Sources */,
 				9E8CE32C28CD2425002D1111 /* ShowResponse.swift in Sources */,
 				9E8CE35E28CD5317002D1111 /* SearchViewModel.swift in Sources */,
+				9E8CE3A828CF85BB002D1111 /* SearchViewState.swift in Sources */,
 				9E8CE36228CD7663002D1111 /* TVShowListView.swift in Sources */,
 				9E8CE36428CD77EC002D1111 /* SearchView.swift in Sources */,
 				9E8CE38828CDC539002D1111 /* DetailEpisodesView.swift in Sources */,

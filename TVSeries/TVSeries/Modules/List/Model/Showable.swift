@@ -11,9 +11,8 @@ protocol Showable {
     var id: Int { get }
     var name: String { get }
     var genres: [String] { get }
-    var status: String { get }
     var image: ImageEntity? { get }
-    var summary: String { get }
+    var summary: String? { get }
 }
 
 extension Showable {
@@ -22,6 +21,6 @@ extension Showable {
     }
     
     func toSummaryFormatted() -> String {
-        return summary.makeCleanerHtml()
+        return summary?.makeCleanerHtml() ?? ""
     }
 }
