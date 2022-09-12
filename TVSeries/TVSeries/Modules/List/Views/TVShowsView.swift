@@ -18,7 +18,7 @@ struct TVShowsView: View {
             LoadingView()
                 .visiblity(viewModel.viewState == .loading)
                 .task {
-                    await viewModel.fetchAll()
+                    await viewModel.fetchShows()
                 }
             
             TVShowListView(shows: viewModel.shows)

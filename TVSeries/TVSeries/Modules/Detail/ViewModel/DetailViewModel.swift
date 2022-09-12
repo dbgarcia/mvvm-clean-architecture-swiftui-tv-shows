@@ -26,17 +26,7 @@ final class DetailViewModel: ObservableObject {
             episodes = try await episodesRepository.fetchEpisodes(of: show.id)
             viewState = .finish
         } catch {
-            debugPrint(error.localizedDescription)
+            viewState = episodes.isEmpty ? .empty : .finish
         }
-        
-        viewState = episodes.isEmpty ? .empty : .finish
-    }
-}
-
-extension DetailViewModel {
-    enum ViewState {
-        case empty
-        case loading
-        case finish
     }
 }

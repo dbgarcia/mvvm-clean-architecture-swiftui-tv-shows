@@ -8,9 +8,41 @@
 import SwiftUI
 
 struct SearchView: View {
-    let viewModel: SearchViewModel
+    @StateObject var viewModel: SearchViewModel
     
     var body: some View {
-        Text("Search").padding()
+        NavigationView {
+            VStack {
+                SearchBarView(placeHolder: "Search for TV Show name..") { query in
+                    Task {
+                        await viewModel.fetchSearch(with: query)
+                    }
+                }
+                .padding()
+                
+                ZStack {
+                    
+                    EmptyView(systemName: "exclamationmark.triangle.fill", message: "No results TV Shows...")
+                        .visiblity(viewModel.viewState == .empty)
+                    
+                    LoadingView()
+                        .visiblity(viewModel.viewState == .loading)
+                    
+                    SearchListView(shows: viewModel.shows)
+                        .visiblity(viewModel.viewState == .finish)
+                }
+            }
+            
+            .navigationBarHidden(true)
+        }
+    }
+}
+
+struct SearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        let network = NetworkManager()
+        let repository = SearchRepository(network: network)
+        let viewModel = SearchViewModel(searchRespository: repository)
+        SearchView(viewModel: viewModel)
     }
 }
