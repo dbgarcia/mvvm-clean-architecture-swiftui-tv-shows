@@ -11,7 +11,6 @@ The propurse with this project try eliminate some commos problems in software ap
 - Immobility
 - Tight Coupling
 
-It is extremely important to evaluate the architectural structure of the product even before the development, to result in a more versatile application whereupon it improves the ability of the developers to improve or fixing features in a short time.
 
 # 📁 Layers
 1. `Core`
