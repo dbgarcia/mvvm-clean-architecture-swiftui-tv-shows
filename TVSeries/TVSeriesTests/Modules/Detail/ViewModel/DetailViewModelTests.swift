@@ -9,7 +9,7 @@ import XCTest
 
 @testable import TVSeries
 
-class DetailViewModelTests: XCTestCase {
+final class DetailViewModelTests: XCTestCase {
 
     private let showResponse = ShowResponse.fixture(name: "Arrow")
     private let repositorySpy = EpisodesRepositorySpy()
