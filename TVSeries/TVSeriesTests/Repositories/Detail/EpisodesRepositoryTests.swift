@@ -6,25 +6,31 @@
 //
 
 import XCTest
+
 @testable import TVSeries
 
 final class EpisodesRepositoryTests: XCTestCase {
+    
+    private let networkSpy = NetworkSpy()
+    private lazy var sut = EpisodesRepository(network: networkSpy)
 
-    func testFecthEpisodes() async throws {
+    func test_fetchEpisodes_shouldReturnListCorrectly() async throws {
         
-        let mockEpisodes = [EpisodeResponse(id: 0, name: "Episode 0", season: 1, number: 1, image: nil),
-                            EpisodeResponse(id: 1, name: "Episode 1", season: 1, number: 2, image: nil),
-                            EpisodeResponse(id: 2, name: "Episode 2", season: 2, number: 1, image: nil),
-                            EpisodeResponse(id: 3, name: "Episode 3", season: 2, number: 2, image: nil)]
+        let expectedResponse = [EpisodeResponse.fixture(name: "Episode 1", season: 1, number: 1)]
+        networkSpy.responsePassed = expectedResponse
         
-        let sut = MockEpisodesRepository(episodes: mockEpisodes)
+        let episodes = try await sut.fetchEpisodes(of: 0)
+
+        XCTAssertEqual(episodes.count, 1)
+        XCTAssertEqual(episodes.first?.name, expectedResponse.first?.name)
+    }
+    
+    func test_fetchEpisodes_shouldReturnListEmpty() async throws {
         
-        // when
-        let episodes = try await sut.fetchEpisodes(of: 1)
+        networkSpy.responsePassed = [EpisodeResponse]()
         
-        // then
-        XCTAssertEqual(sut.hasCalledFetchEpisodes, true)
-        XCTAssertEqual(sut.idShow, 1)
-        XCTAssertEqual(episodes.count, mockEpisodes.count)
+        let episodes = try await sut.fetchEpisodes(of: 0)
+
+        XCTAssertTrue(episodes.isEmpty)
     }
 }

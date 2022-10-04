@@ -29,4 +29,14 @@ final class ShowsListViewModelTests: XCTestCase {
         XCTAssertTrue(sut.isVisibleList)
         XCTAssertFalse(sut.shows.isEmpty)
     }
+    
+    func test_fetchShows_shouldReturnListEmpty() async throws {
+        
+        repositorySpy.shows = [ShowResponse]()
+        
+        await sut.fetchShows()
+        
+        XCTAssertTrue(sut.isVisibleEmpty)
+        XCTAssertTrue(sut.shows.isEmpty)
+    }
 }

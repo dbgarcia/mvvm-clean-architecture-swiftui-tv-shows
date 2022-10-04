@@ -28,15 +28,13 @@ final class DetailViewModel: ObservableObject, DetailViewModelProtocol {
         return viewState == .finish
     }
     
-    
-    
-    private let episodesRepository: EpisodesRepository
+    private let episodesRepository: EpisodesRepositoryProtocol
     private var viewState: ViewState = .loading
     
     private(set) var show: Showable
     @Published private(set) var episodes: [Episodeable] = []
     
-    init(show: Showable, episodesRepository: EpisodesRepository = EpisodesRepository()) {
+    init(show: Showable, episodesRepository: EpisodesRepositoryProtocol = EpisodesRepository()) {
         self.show = show
         self.episodesRepository = episodesRepository
     }
