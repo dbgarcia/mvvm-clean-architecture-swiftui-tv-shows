@@ -9,7 +9,7 @@ import XCTest
 
 @testable import TVSeries
 
-class NetworkTests: XCTestCase {
+final class NetworkTests: XCTestCase {
     
     private let sessionSpy = SessionSpy()
     private lazy var sut = Network(session: sessionSpy)

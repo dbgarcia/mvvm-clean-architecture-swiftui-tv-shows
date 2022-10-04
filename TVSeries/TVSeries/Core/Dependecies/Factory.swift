@@ -7,6 +7,6 @@
 
 import Factory
 
-class DIContainer {
+final class DIContainer {
     static let network = Factory(scope: .singleton) { Network() }
 }
