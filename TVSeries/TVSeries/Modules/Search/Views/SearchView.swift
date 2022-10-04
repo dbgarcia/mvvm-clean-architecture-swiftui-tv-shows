@@ -40,9 +40,7 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        let network = NetworkManager()
-        let repository = SearchRepository(network: network)
-        let viewModel = SearchViewModel(searchRespository: repository)
+        let viewModel = SearchViewModel(searchRespository: SearchRepository())
         SearchView(viewModel: viewModel)
     }
 }

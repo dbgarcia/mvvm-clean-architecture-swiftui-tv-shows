@@ -7,7 +7,7 @@
 
 @testable import TVSeries
 
-class MockShowsRepository: BaseShowsRepository {
+class MockShowsRepository: ShowsRepositoryProtocol {
     
     private(set) var currentPage = 0
     private(set) var hasCalledFetchShows = false

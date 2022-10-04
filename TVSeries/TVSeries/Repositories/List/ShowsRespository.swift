@@ -7,10 +7,14 @@
 
 import Foundation
 
-final class ShowsRepository: BaseShowsRepository {
-    private let network: NetworkManager
+protocol ShowsRepositoryProtocol {
+    func fetchShows(of page: Int) async throws -> [Showable]
+}
+
+final class ShowsRepository: ShowsRepositoryProtocol {
+    private let network: Network
     
-    init(network: NetworkManager) {
+    init(network: Network = DIContainer.network()) {
         self.network = network
     }
     

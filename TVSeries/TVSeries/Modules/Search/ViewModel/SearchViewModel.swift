@@ -7,7 +7,15 @@
 
 import Foundation
 
-final class SearchViewModel: ObservableObject, BaseSearchViewModel {
+protocol SearchViewModelProtocol {
+    var isVisibleLoading: Bool { get }
+    var isVisibleEmpty: Bool { get }
+    var isVisibleList: Bool { get }
+    
+    func fetchSearch(with query: String) async
+}
+
+final class SearchViewModel: ObservableObject, SearchViewModelProtocol {
     var isVisibleLoading: Bool {
         return viewState == .loading
     }
@@ -27,7 +35,7 @@ final class SearchViewModel: ObservableObject, BaseSearchViewModel {
     @Published private(set) var shows: [Showable] = []
     @Published private(set) var viewState: ViewState = .empty
     
-    init(searchRespository: SearchRepository = DIContainer.searchRepository()) {
+    init(searchRespository: SearchRepository = SearchRepository()) {
         self.searchRespository = searchRespository
     }
     

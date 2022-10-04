@@ -41,9 +41,7 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         let show = ShowResponse(id: 1, name: "Example", genres: ["Action"])
-        let network = NetworkManager()
-        let repository = EpisodesRepository(network: network)
-        let viewModel = DetailViewModel(show: show, episodesRepository: repository)
+        let viewModel = DetailViewModel(show: show)
         DetailView(viewModel: viewModel)
     }
 }

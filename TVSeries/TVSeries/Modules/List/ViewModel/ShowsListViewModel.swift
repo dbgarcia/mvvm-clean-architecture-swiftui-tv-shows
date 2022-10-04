@@ -7,7 +7,16 @@
 
 import Foundation
 
-final class ShowsListViewModel: ObservableObject, BaseShowsViewModel {
+protocol ShowsViewModelProtocol {
+    var isVisibleLoading: Bool { get }
+    var isVisibleEmpty: Bool { get }
+    var isVisibleList: Bool { get }
+    
+    func fetchShows() async
+    func fetchMoreShows(of show: Showable) async
+}
+
+final class ShowsListViewModel: ObservableObject, ShowsViewModelProtocol {
     var isVisibleLoading: Bool {
         return viewState == .loading
     }
@@ -26,7 +35,7 @@ final class ShowsListViewModel: ObservableObject, BaseShowsViewModel {
     
     @Published private(set) var shows: [Showable] = []
 
-    init(repository: ShowsRepository = DIContainer.showsListRepository()) {
+    init(repository: ShowsRepository = ShowsRepository()) {
         self.repository = repository
     }
     
