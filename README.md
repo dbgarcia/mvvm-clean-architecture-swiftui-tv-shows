@@ -15,7 +15,7 @@ The propurse with this project try eliminate some commos problems in software ap
 # 📁 Layers
 1. `Core`
 2. `Modules` 
-3. `Repositorys` 
+3. `Repositories` 
 
 # 🚀 TV Maze data
 The project works with the TV Maze API (free public API) through the requests:
