@@ -29,13 +29,13 @@ final class SearchViewModel: ObservableObject, SearchViewModelProtocol {
     }
     
     
-    private let searchRespository: SearchRepository
+    private let searchRespository: SearchRepositoryProtocol
     private var searchViewState: SearchViewState = .loading
     
     @Published private(set) var shows: [Showable] = []
     @Published private(set) var viewState: ViewState = .empty
     
-    init(searchRespository: SearchRepository = SearchRepository()) {
+    init(searchRespository: SearchRepositoryProtocol = SearchRepository()) {
         self.searchRespository = searchRespository
     }
     
