@@ -8,7 +8,7 @@
 import XCTest
 @testable import TVSeries
 
-class EpisodesRepositoryTests: XCTestCase {
+final class EpisodesRepositoryTests: XCTestCase {
 
     func testFecthEpisodes() async throws {
         

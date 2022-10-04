@@ -9,15 +9,17 @@ import Foundation
 
 @testable import TVSeries
 
-class NetworkSpy: NetworkProtocol {
+final class NetworkSpy: NetworkProtocol {
     
-    private var dataPassed: Data?
-    private(set) var responsePassed: Decodable?
+    var dataPassed: Data?
+    var responsePassed: Decodable?
     
+    private(set) var requestCount: Int = 0
     private(set) var requestCalled = false
     private(set) var baseRequest: BaseRequest?
     
     func request<T>(with request: BaseRequest, responseType: T.Type) async throws -> T where T : Decodable {
+        self.requestCount += 1
         self.requestCalled = true
         self.baseRequest = request
         

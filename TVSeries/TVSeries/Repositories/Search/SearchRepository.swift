@@ -12,9 +12,9 @@ protocol SearchRepositoryProtocol {
 }
 
 final class SearchRepository: SearchRepositoryProtocol {
-    private let network: Network
+    private let network: NetworkProtocol
     
-    init(network: Network = DIContainer.network()) {
+    init(network: NetworkProtocol = DIContainer.network()) {
         self.network = network
     }
     

@@ -7,7 +7,7 @@
 
 @testable import TVSeries
 
-class MockEpisodesRepository: EpisodesRepositoryProtocol {
+final class MockEpisodesRepository: EpisodesRepositoryProtocol {
     
     private(set) var idShow = 0
     private(set) var hasCalledFetchEpisodes = false
