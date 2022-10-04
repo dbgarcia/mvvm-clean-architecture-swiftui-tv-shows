@@ -8,24 +8,47 @@
 import XCTest
 @testable import TVSeries
 
-class ShowsRepositoryTests: XCTestCase {
+final class ShowsRepositoryTests: XCTestCase {
+    
+    private let networkSpy = NetworkSpy()
+    private lazy var sut = ShowsRepository(network: networkSpy)
+    
+    func test_fetchShows_shouldBeCalled() async throws {
+        
+        networkSpy.responsePassed = [ShowResponse]()
 
-    func testFecthShows() async throws {
+        _ = try await sut.fetchShows(of: 0)
         
-        let mockShows = [ShowResponse(id: 0, name: "Example 1", genres: ["Action"], summary: nil, image: nil),
-                         ShowResponse(id: 1, name: "Example 2", genres: ["Commedy", "Action"], summary: nil, image: nil),
-                         ShowResponse(id: 2, name: "Example 3", genres: [], summary: nil, image: nil)]
+        XCTAssertTrue(networkSpy.requestCalled)
+    }
+    
+    func test_fetchShows_shouldCalledOnceOnly() async throws {
         
-        let sut = MockShowsRepository(shows: mockShows)
+        networkSpy.responsePassed = [ShowResponse]()
+
+        _ = try await sut.fetchShows(of: 0)
         
+        XCTAssertEqual(networkSpy.requestCount, 1)
+    }
+
+    func test_fetchShows_shouldReturnListCorrectly() async throws {
         
-        // when
+        let expectedResponse = [ShowResponse.fixture(id: 0, name: "Arrow")]
+        networkSpy.responsePassed = expectedResponse
+
         let shows = try await sut.fetchShows(of: 0)
         
-        // then
-        XCTAssertFalse(sut.currentPage == 0)
-        XCTAssertEqual(sut.hasCalledFetchShows, true)
-        XCTAssertEqual(sut.currentPage, 1)
-        XCTAssertEqual(shows.count, mockShows.count)
+        XCTAssertEqual(shows.count, 1)
+        XCTAssertEqual(shows.first?.name, expectedResponse.first?.name)
+    }
+    
+    func test_fetchShows_shouldReturnListEmpty() async throws {
+        
+        let expectedResponse: [ShowResponse] = []
+        networkSpy.responsePassed = expectedResponse
+
+        let shows = try await sut.fetchShows(of: 0)
+        
+        XCTAssertTrue(shows.isEmpty)
     }
 }

@@ -8,22 +8,7 @@
 import XCTest
 @testable import TVSeries
 
-class TVSeriesTests: XCTestCase {
-
-    func testShowsRepositoryIntegration() async throws {
-        
-        let network = DIContainer.network()
-        let repository = ShowsRepository(network: network)
-        let viewModel = ShowsListViewModel(repository: repository)
-        
-        // when
-        await viewModel.fetchShows()
-        
-        // then
-        XCTAssertFalse(viewModel.isVisibleLoading)
-        XCTAssertTrue(viewModel.shows.count > 0)
-        XCTAssertTrue(viewModel.isVisibleList)
-    }
+final class TVSeriesTests: XCTestCase {
     
     func testEpisodesRepositoryIntegration() async throws {
         

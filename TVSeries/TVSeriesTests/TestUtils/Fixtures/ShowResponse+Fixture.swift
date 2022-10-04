@@ -11,7 +11,7 @@ import Foundation
 
 extension ShowResponse {
     
-    func fixture(id: Int = 0, name: String = "", genres: [String] = [], summary: String?, image: ImageEntity?) -> ShowResponse {
-        return ShowResponse(id: id, name: name, genres: genres, summary: summary, image: image)
+    static func fixture(id: Int = 0, name: String = "", genres: [String] = [], summary: String? = nil, image: ImageEntity? = nil) -> Self {
+        .init(id: id, name: name, genres: genres, summary: summary, image: image)
     }
 }

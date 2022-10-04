@@ -12,9 +12,9 @@ protocol ShowsRepositoryProtocol {
 }
 
 final class ShowsRepository: ShowsRepositoryProtocol {
-    private let network: Network
+    private let network: NetworkProtocol
     
-    init(network: Network = DIContainer.network()) {
+    init(network: NetworkProtocol = DIContainer.network()) {
         self.network = network
     }
     

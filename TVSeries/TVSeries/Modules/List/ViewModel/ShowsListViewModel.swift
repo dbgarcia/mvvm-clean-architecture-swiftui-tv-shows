@@ -30,12 +30,12 @@ final class ShowsListViewModel: ObservableObject, ShowsViewModelProtocol {
     }
     
     private var currentPage = 0
-    private var repository: ShowsRepository
+    private var repository: ShowsRepositoryProtocol
     private var viewState: ViewState = .loading
     
     @Published private(set) var shows: [Showable] = []
 
-    init(repository: ShowsRepository = ShowsRepository()) {
+    init(repository: ShowsRepositoryProtocol = ShowsRepository()) {
         self.repository = repository
     }
     
