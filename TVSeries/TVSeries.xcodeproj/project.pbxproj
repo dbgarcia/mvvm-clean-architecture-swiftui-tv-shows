@@ -13,7 +13,7 @@
 		9E12C24F28ECB82E000FFA40 /* URLRequest+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E12C24E28ECB82E000FFA40 /* URLRequest+Fixture.swift */; };
 		9E12C25128ECB841000FFA40 /* URLComponents+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E12C25028ECB841000FFA40 /* URLComponents+Fixture.swift */; };
 		9E18E3C628D6BFC0007E71E0 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E18E3C528D6BFC0007E71E0 /* NetworkTests.swift */; };
-		9E18E3C828D6BFEE007E71E0 /* SpyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E18E3C728D6BFEE007E71E0 /* SpyNetwork.swift */; };
+		9E18E3C828D6BFEE007E71E0 /* NetworkSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E18E3C728D6BFEE007E71E0 /* NetworkSpy.swift */; };
 		9E8CE32428CD1FD4002D1111 /* ShowsRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE32328CD1FD4002D1111 /* ShowsRespository.swift */; };
 		9E8CE32628CD21EC002D1111 /* Showable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE32528CD21EC002D1111 /* Showable.swift */; };
 		9E8CE32828CD22D7002D1111 /* ShowsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CE32728CD22D7002D1111 /* ShowsListViewModel.swift */; };
@@ -81,7 +81,7 @@
 		9E12C24E28ECB82E000FFA40 /* URLRequest+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Fixture.swift"; sourceTree = "<group>"; };
 		9E12C25028ECB841000FFA40 /* URLComponents+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+Fixture.swift"; sourceTree = "<group>"; };
 		9E18E3C528D6BFC0007E71E0 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
-		9E18E3C728D6BFEE007E71E0 /* SpyNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyNetwork.swift; sourceTree = "<group>"; };
+		9E18E3C728D6BFEE007E71E0 /* NetworkSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpy.swift; sourceTree = "<group>"; };
 		9E8CE32328CD1FD4002D1111 /* ShowsRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRespository.swift; sourceTree = "<group>"; };
 		9E8CE32528CD21EC002D1111 /* Showable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Showable.swift; sourceTree = "<group>"; };
 		9E8CE32728CD22D7002D1111 /* ShowsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListViewModel.swift; sourceTree = "<group>"; };
@@ -164,6 +164,7 @@
 		9E12C24628ECB787000FFA40 /* Doubles */ = {
 			isa = PBXGroup;
 			children = (
+				9E18E3C728D6BFEE007E71E0 /* NetworkSpy.swift */,
 				9E12C24828ECB7AC000FFA40 /* SessionSpy.swift */,
 			);
 			path = Doubles;
@@ -231,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				9E18E3C528D6BFC0007E71E0 /* NetworkTests.swift */,
-				9E18E3C728D6BFEE007E71E0 /* SpyNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -760,7 +760,7 @@
 				9E12C24928ECB7AC000FFA40 /* SessionSpy.swift in Sources */,
 				9E8CE3B228CF9F8D002D1111 /* MockShowsRepository.swift in Sources */,
 				9E12C24B28ECB7EA000FFA40 /* ShowResponse+Fixture.swift in Sources */,
-				9E18E3C828D6BFEE007E71E0 /* SpyNetwork.swift in Sources */,
+				9E18E3C828D6BFEE007E71E0 /* NetworkSpy.swift in Sources */,
 				9E8CE3B728CFA662002D1111 /* MockEpisodesRepository.swift in Sources */,
 				9EEEFE3428CD11B800C06522 /* TVSeriesTests.swift in Sources */,
 			);

@@ -5,10 +5,11 @@
 //  Created by Douglas Garcia on 17/09/22.
 //
 
-@testable import TVSeries
 import Foundation
 
-class SpyNetwork: NetworkProtocol {
+@testable import TVSeries
+
+class NetworkSpy: NetworkProtocol {
     
     private var dataPassed: Data?
     private(set) var responsePassed: Decodable?
@@ -21,12 +22,6 @@ class SpyNetwork: NetworkProtocol {
         self.baseRequest = request
         
         return responsePassed as! T
-    }
-    
-    func makeURLRequest(_ baseRequest: BaseRequest) throws -> URLRequest {
-        self.baseRequest = baseRequest
-        
-        return URLRequest(url: .init(string: baseRequest.baseURL)!)
     }
     
     func makeSessionData(_ urlRequest: URLRequest) async throws -> Data? {
