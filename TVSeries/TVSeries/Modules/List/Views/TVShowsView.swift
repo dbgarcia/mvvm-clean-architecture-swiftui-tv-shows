@@ -36,9 +36,6 @@ struct TVShowsView: View {
 
 struct TVShowsView_Previews: PreviewProvider {
     static var previews: some View {
-        let network = NetworkManager()
-        let repository = ShowsRepository(network: network)
-        let viewModel = ShowsListViewModel(repository: repository)
-        TVShowsView(viewModel: viewModel)
+        TVShowsView(viewModel: ShowsListViewModel())
     }
 }

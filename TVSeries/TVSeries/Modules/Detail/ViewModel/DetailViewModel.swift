@@ -7,7 +7,15 @@
 
 import Foundation
 
-final class DetailViewModel: ObservableObject, BaseDetailViewModel {
+protocol DetailViewModelProtocol {
+    var isVisibleLoading: Bool { get }
+    var isVisibleEmpty: Bool { get }
+    var isVisibleList: Bool { get }
+    
+    func fetchEpisodes() async
+}
+
+final class DetailViewModel: ObservableObject, DetailViewModelProtocol {
     var isVisibleLoading: Bool {
         return viewState == .loading
     }
@@ -28,7 +36,7 @@ final class DetailViewModel: ObservableObject, BaseDetailViewModel {
     private(set) var show: Showable
     @Published private(set) var episodes: [Episodeable] = []
     
-    init(show: Showable, episodesRepository: EpisodesRepository = DIContainer.episodesRepository()) {
+    init(show: Showable, episodesRepository: EpisodesRepository = EpisodesRepository()) {
         self.show = show
         self.episodesRepository = episodesRepository
     }

@@ -7,7 +7,7 @@
 
 @testable import TVSeries
 
-class MockEpisodesRepository: BaseEpisodesRepository {
+class MockEpisodesRepository: EpisodesRepositoryProtocol {
     
     private(set) var idShow = 0
     private(set) var hasCalledFetchEpisodes = false
@@ -20,7 +20,7 @@ class MockEpisodesRepository: BaseEpisodesRepository {
     
     func fetchEpisodes(of idShow: Int) async throws -> [Episodeable] {
         hasCalledFetchEpisodes = true
-        idShow = idShow
+        self.idShow = idShow
         return episodes
     }
 }

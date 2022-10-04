@@ -7,10 +7,14 @@
 
 import Foundation
 
-final class SearchRepository: BaseSearchRepository {
-    private let network: NetworkManager
+protocol SearchRepositoryProtocol {
+    func fetchSearchShows(with name: String) async throws -> [Showable]
+}
+
+final class SearchRepository: SearchRepositoryProtocol {
+    private let network: Network
     
-    init(network: NetworkManager) {
+    init(network: Network = DIContainer.network()) {
         self.network = network
     }
     
