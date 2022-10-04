@@ -30,6 +30,11 @@ As we already have the data available in entities, to allocate them to be worked
 2. `EpisodesRepository` - get data from the second request flow
 3. `SearchRepository` - get data from the search with query name
 
+# 🎯 Unit Test
+This project works with test doubles. `TVSeriesTests`
+1. `Spy`
+2. `Fixtures` 
+
 # 📈 Code Coverage
 ![](https://github.com/dbgarcia/tv_series_app/blob/7924b9fe44de529c7d983c1b3fb10e88ad375278/assets/CodeCoverage.png?raw=true)
 ---
