@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol EpisodesRepositoryProtocol {
-    func fetchEpisodes(of idShow: Int) async throws -> [Episodeable]
-}
-
 final class EpisodesRepository: EpisodesRepositoryProtocol {
     private let network: NetworkProtocol
     

@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol SearchRepositoryProtocol {
-    func fetchSearchShows(with name: String) async throws -> [Showable]
-}
-
 final class SearchRepository: SearchRepositoryProtocol {
     private let network: NetworkProtocol
     
