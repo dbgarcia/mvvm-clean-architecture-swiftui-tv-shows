@@ -180,9 +180,9 @@
 		9E12C24628ECB787000FFA40 /* Doubles */ = {
 			isa = PBXGroup;
 			children = (
-				9E12C26528ECDB42000FFA40 /* SearchRepositorySpy.swift */,
 				9E8CE3B628CFA662002D1111 /* EpisodesRepositorySpy.swift */,
 				9E18E3C728D6BFEE007E71E0 /* NetworkSpy.swift */,
+				9E12C26528ECDB42000FFA40 /* SearchRepositorySpy.swift */,
 				9E12C24828ECB7AC000FFA40 /* SessionSpy.swift */,
 				9E12C25628ECC037000FFA40 /* ShowsRepositorySpy.swift */,
 			);
@@ -199,46 +199,6 @@
 				9E12C24E28ECB82E000FFA40 /* URLRequest+Fixture.swift */,
 			);
 			path = Fixtures;
-			sourceTree = "<group>";
-		};
-		9E12C25C28ECCAA2000FFA40 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				9E12C25D28ECCAA8000FFA40 /* ViewModel */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
-		9E12C25D28ECCAA8000FFA40 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				9E12C25E28ECCAC0000FFA40 /* DetailViewModelTests.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		9E12C26028ECDAAD000FFA40 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				9E12C26128ECDAB5000FFA40 /* ViewModel */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		9E12C26128ECDAB5000FFA40 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				9E12C26228ECDAC4000FFA40 /* SearchViewModelTests.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		9E12C26428ECDB37000FFA40 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				9E12C26728ECDC43000FFA40 /* SearchRepositoryTests.swift */,
-			);
-			path = Search;
 			sourceTree = "<group>";
 		};
 		9E12C26928F9D483000FFA40 /* Domain */ = {
@@ -420,15 +380,60 @@
 			path = DIContainer;
 			sourceTree = "<group>";
 		};
-		9E8CE33328CD3666002D1111 /* List */ = {
+		9E12C28428F9F79C000FFA40 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9E8CE33428CD3679002D1111 /* ViewModel */,
+				9E12C28E28F9F951000FFA40 /* Network */,
+				9E12C28528F9F7CA000FFA40 /* Repositories */,
 			);
-			path = List;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		9E8CE33428CD3679002D1111 /* ViewModel */ = {
+		9E12C28528F9F7CA000FFA40 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CE3B428CFA649002D1111 /* EpisodesRepositoryTests.swift */,
+				9E12C26728ECDC43000FFA40 /* SearchRepositoryTests.swift */,
+				9E8CE3AF28CF9F23002D1111 /* ShowsRepositoryTests.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		9E12C28628F9F812000FFA40 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9E12C28B28F9F88B000FFA40 /* TVSeriesSearch */,
+				9E12C28928F9F865000FFA40 /* TVSeriesList */,
+				9E12C28728F9F846000FFA40 /* TVSerieDetail */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		9E12C28728F9F846000FFA40 /* TVSerieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9E12C28828F9F84F000FFA40 /* ViewModel */,
+			);
+			path = TVSerieDetail;
+			sourceTree = "<group>";
+		};
+		9E12C28828F9F84F000FFA40 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E12C25E28ECCAC0000FFA40 /* DetailViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9E12C28928F9F865000FFA40 /* TVSeriesList */ = {
+			isa = PBXGroup;
+			children = (
+				9E12C28A28F9F870000FFA40 /* ViewModel */,
+			);
+			path = TVSeriesList;
+			sourceTree = "<group>";
+		};
+		9E12C28A28F9F870000FFA40 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				9E12C25228ECBCFB000FFA40 /* ShowsListViewModelTests.swift */,
@@ -436,33 +441,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		9E8CE33628CD3696002D1111 /* Modules */ = {
+		9E12C28B28F9F88B000FFA40 /* TVSeriesSearch */ = {
 			isa = PBXGroup;
 			children = (
-				9E12C26028ECDAAD000FFA40 /* Search */,
-				9E12C25C28ECCAA2000FFA40 /* Detail */,
-				9E8CE33328CD3666002D1111 /* List */,
+				9E12C28C28F9F891000FFA40 /* ViewModel */,
 			);
-			path = Modules;
+			path = TVSeriesSearch;
 			sourceTree = "<group>";
 		};
-		9E8CE33728CD369F002D1111 /* Core */ = {
+		9E12C28C28F9F891000FFA40 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9E8CE33928CD36B1002D1111 /* Network */,
-				9E8CE33828CD36A7002D1111 /* Extensions */,
+				9E12C26228ECDAC4000FFA40 /* SearchViewModelTests.swift */,
 			);
-			path = Core;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		9E8CE33828CD36A7002D1111 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9E8CE33928CD36B1002D1111 /* Network */ = {
+		9E12C28E28F9F951000FFA40 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				9E18E3C528D6BFC0007E71E0 /* NetworkTests.swift */,
@@ -515,32 +510,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		9E8CE3AD28CF9E7D002D1111 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				9E12C26428ECDB37000FFA40 /* Search */,
-				9E8CE3B328CFA630002D1111 /* Detail */,
-				9E8CE3AE28CF9E95002D1111 /* List */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		9E8CE3AE28CF9E95002D1111 /* List */ = {
-			isa = PBXGroup;
-			children = (
-				9E8CE3AF28CF9F23002D1111 /* ShowsRepositoryTests.swift */,
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
-		9E8CE3B328CFA630002D1111 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				9E8CE3B428CFA649002D1111 /* EpisodesRepositoryTests.swift */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
 		9EEEFE1628CD11B700C06522 = {
 			isa = PBXGroup;
 			children = (
@@ -585,9 +554,8 @@
 		9EEEFE3228CD11B800C06522 /* TVSeriesTests */ = {
 			isa = PBXGroup;
 			children = (
-				9E8CE33728CD369F002D1111 /* Core */,
-				9E8CE33628CD3696002D1111 /* Modules */,
-				9E8CE3AD28CF9E7D002D1111 /* Repositories */,
+				9E12C28428F9F79C000FFA40 /* Data */,
+				9E12C28628F9F812000FFA40 /* Presentation */,
 				9E12C24528ECB77C000FFA40 /* TestUtils */,
 			);
 			path = TVSeriesTests;
