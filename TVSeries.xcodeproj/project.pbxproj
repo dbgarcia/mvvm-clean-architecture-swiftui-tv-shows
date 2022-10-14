@@ -465,6 +465,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		9E12C28F28FA0103000FFA40 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9EEEFE2628CD11B800C06522 /* Assets.xcassets */,
+				9EEEFE2828CD11B800C06522 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		9E8CE35528CD4E78002D1111 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,13 +541,12 @@
 			isa = PBXGroup;
 			children = (
 				9E12C27F28F9F4BC000FFA40 /* Application */,
-				9EEEFE2628CD11B800C06522 /* Assets.xcassets */,
 				9E12C28028F9F51E000FFA40 /* Common */,
 				9E12C26F28F9D61A000FFA40 /* Data */,
 				9E12C26928F9D483000FFA40 /* Domain */,
 				9E12C27628F9ED70000FFA40 /* Infrastructure */,
 				9E12C26E28F9D5F1000FFA40 /* Presentation */,
-				9EEEFE2828CD11B800C06522 /* Preview Content */,
+				9E12C28F28FA0103000FFA40 /* Resources */,
 			);
 			path = TVSeries;
 			sourceTree = "<group>";
