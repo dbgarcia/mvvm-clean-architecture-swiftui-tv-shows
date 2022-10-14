@@ -1,8 +1,8 @@
 ![](./assets/image1.png)
 
-# TV Series App (TV Maze - free public API)
+# TV Shows App (TV Maze - free public API)
 
-This project is a proof of concept to valid the architecture MVVM + Clean Architecture with SwiftUI and Unit Test and Code Coverage.
+This project is a proof of concept to valid the architecture MVVM + Clean Architecture with SwiftUI and Unit Test.
 
 # 📁 Layers
 1. `Application`
