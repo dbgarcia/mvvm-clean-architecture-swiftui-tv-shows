@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol ShowsRepositoryProtocol {
-    func fetchShows(of page: Int) async throws -> [Showable]
-}
-
 final class ShowsRepository: ShowsRepositoryProtocol {
     private let network: NetworkProtocol
     
