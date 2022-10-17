@@ -19,7 +19,7 @@ final class EpisodesRepositoryTests: XCTestCase {
         let expectedResponse = [EpisodeResponse.fixture(name: "Episode 1", season: 1, number: 1)]
         networkSpy.responsePassed = expectedResponse
         
-        let episodes = try await sut.fetchEpisodes(of: 0)
+        let episodes = try await sut.getEpisodes(id: 0)
 
         XCTAssertEqual(episodes.count, 1)
         XCTAssertEqual(episodes.first?.name, expectedResponse.first?.name)
@@ -29,7 +29,7 @@ final class EpisodesRepositoryTests: XCTestCase {
         
         networkSpy.responsePassed = [EpisodeResponse]()
         
-        let episodes = try await sut.fetchEpisodes(of: 0)
+        let episodes = try await sut.getEpisodes(id: 0)
 
         XCTAssertTrue(episodes.isEmpty)
     }

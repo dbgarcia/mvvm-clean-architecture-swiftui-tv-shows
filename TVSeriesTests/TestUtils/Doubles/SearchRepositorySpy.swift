@@ -17,7 +17,7 @@ final class SearchRepositorySpy: SearchRepositoryProtocol {
     private(set) var fetchSearchShowsCount: Int = 0
     private(set) var fetchSearchShowsCalled: Bool = false
     
-    func fetchSearchShows(with name: String) async throws -> [Showable] {
+    func getShows(name: String) async throws -> [Showable] {
         fetchSearchShowsCount += 1
         fetchSearchShowsCalled = true
         namePassed = name

@@ -7,17 +7,6 @@
 
 import Foundation
 
-protocol NetworkProtocol {
-    func request<T>(with request: BaseRequest, responseType: T.Type) async throws -> T where T: Decodable
-    func makeURLComponents(_ baseRequest: BaseRequest) throws -> URLComponents?
-    func makeURLRequest(_ urlComponents: URLComponents?, httpMethod: String) throws -> URLRequest
-    func makeSessionData(_ urlRequest: URLRequest) async throws -> Data?
-}
-
-protocol SessionProtocol {
-    func data(for request: URLRequest, delegate: URLSessionTaskDelegate?) async throws -> (Data, URLResponse)
-}
-
 final class Network: NetworkProtocol {
 
     private let session: SessionProtocol
@@ -28,21 +17,20 @@ final class Network: NetworkProtocol {
         self.jsonDecoder = jsonDecoder
     }
     
-    func request<T>(with baseRequest: BaseRequest, responseType: T.Type) async throws -> T where T: Decodable {
-        
+    func request<T>(with baseRequest: RequestProtocol, responseType: T.Type) async throws -> T where T: Decodable {
         let urlComponents = try makeURLComponents(baseRequest)
         let request = try makeURLRequest(urlComponents, httpMethod: baseRequest.method.rawValue)
         let dataRequest = try await self.makeSessionData(request)
         
         guard let data = dataRequest else {
-            throw BaseError.unexpectedResponse
+            throw NetworkError.unexpectedResponse
         }
         
         let response = try jsonDecoder.decode(responseType, from: data)
         return response
     }
     
-    func makeURLComponents(_ baseRequest: BaseRequest) throws -> URLComponents? {
+    func makeURLComponents(_ baseRequest: RequestProtocol) throws -> URLComponents? {
         let urlString = baseRequest.baseURL + baseRequest.path
         let queryItems = baseRequest.queryItems?.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
         
@@ -53,15 +41,11 @@ final class Network: NetworkProtocol {
     }
     
     func makeURLRequest(_ urlComponents: URLComponents?, httpMethod: String) throws -> URLRequest {
-        
         guard let url = urlComponents?.url else {
-            throw BaseError.invalidURL
+            throw NetworkError.invalidURL
         }
         
-        let timeoutInterval = TimeInterval(30.0)
-        let cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
-        
-        var request = URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
+        var request = URLRequest(url: url, cachePolicy: .reloadRevalidatingCacheData, timeoutInterval: .init(30))
         request.httpMethod = httpMethod
         
         return request
@@ -72,6 +56,3 @@ final class Network: NetworkProtocol {
         return sessionRequest.0
     }
 }
-
-
-extension URLSession: SessionProtocol { }

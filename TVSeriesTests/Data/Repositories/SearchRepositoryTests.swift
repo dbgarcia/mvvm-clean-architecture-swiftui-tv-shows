@@ -18,7 +18,7 @@ final class SearchRepositoryTests: XCTestCase {
         
         networkSpy.responsePassed = [ShowResponse]()
         
-        let shows = try await sut.fetchSearchShows(with: "Black List")
+        let shows = try await sut.getShows(name: "Black List")
         
         XCTAssertTrue(shows.isEmpty)
     }
@@ -28,7 +28,7 @@ final class SearchRepositoryTests: XCTestCase {
         let expectedShows = [ShowResponse.fixture(name: "Seal Team")]
         networkSpy.responsePassed = expectedShows
         
-        let shows = try await sut.fetchSearchShows(with: "")
+        let shows = try await sut.getShows(name: "")
         
         XCTAssertFalse(shows.isEmpty)
         XCTAssertEqual(shows.count, 1)

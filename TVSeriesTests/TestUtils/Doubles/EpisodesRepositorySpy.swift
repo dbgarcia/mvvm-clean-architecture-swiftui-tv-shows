@@ -11,17 +11,17 @@ import Foundation
 
 final class EpisodesRepositorySpy: EpisodesRepositoryProtocol {
     
-    var episodes: [Episodeable] = []
+    var episodesReturned: [Episodeable] = []
     
     private(set) var idShow: Int = 0
     private(set) var fetchEpisodesCalled: Bool = false
     private(set) var fetchEpisodesCount: Int = 0
     
-    func fetchEpisodes(of idShow: Int) async throws -> [Episodeable] {
+    func getEpisodes(id: Int) async throws -> [Episodeable] {
         fetchEpisodesCalled = true
         fetchEpisodesCount += 1
-        self.idShow = idShow
+        self.idShow = id
         
-        return episodes
+        return episodesReturned
     }
 }

@@ -17,7 +17,7 @@ final class ShowsRepositoryTests: XCTestCase {
         
         networkSpy.responsePassed = [ShowResponse]()
 
-        _ = try await sut.fetchShows(of: 0)
+        _ = try await sut.getShows(page: 0)
         
         XCTAssertTrue(networkSpy.requestCalled)
     }
@@ -26,7 +26,7 @@ final class ShowsRepositoryTests: XCTestCase {
         
         networkSpy.responsePassed = [ShowResponse]()
 
-        _ = try await sut.fetchShows(of: 0)
+        _ = try await sut.getShows(page: 0)
         
         XCTAssertEqual(networkSpy.requestCount, 1)
     }
@@ -36,7 +36,7 @@ final class ShowsRepositoryTests: XCTestCase {
         let expectedResponse = [ShowResponse.fixture(id: 0, name: "Arrow")]
         networkSpy.responsePassed = expectedResponse
 
-        let shows = try await sut.fetchShows(of: 0)
+        let shows = try await sut.getShows(page: 0)
         
         XCTAssertEqual(shows.count, 1)
         XCTAssertEqual(shows.first?.name, expectedResponse.first?.name)
@@ -47,7 +47,7 @@ final class ShowsRepositoryTests: XCTestCase {
         let expectedResponse: [ShowResponse] = []
         networkSpy.responsePassed = expectedResponse
 
-        let shows = try await sut.fetchShows(of: 0)
+        let shows = try await sut.getShows(page: 0)
         
         XCTAssertTrue(shows.isEmpty)
     }

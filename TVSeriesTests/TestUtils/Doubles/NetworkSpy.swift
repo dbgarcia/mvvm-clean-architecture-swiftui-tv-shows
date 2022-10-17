@@ -16,9 +16,9 @@ final class NetworkSpy: NetworkProtocol {
     
     private(set) var requestCount: Int = 0
     private(set) var requestCalled = false
-    private(set) var baseRequest: BaseRequest?
+    private(set) var baseRequest: RequestProtocol?
     
-    func request<T>(with request: BaseRequest, responseType: T.Type) async throws -> T where T : Decodable {
+    func request<T>(with request: RequestProtocol, responseType: T.Type) async throws -> T where T : Decodable {
         self.requestCount += 1
         self.requestCalled = true
         self.baseRequest = request
@@ -30,7 +30,7 @@ final class NetworkSpy: NetworkProtocol {
         return dataPassed
     }
     
-    func makeURLComponents(_ baseRequest: BaseRequest) throws -> URLComponents? {
+    func makeURLComponents(_ baseRequest: RequestProtocol) throws -> URLComponents? {
         return URLComponents()
     }
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchRequest: BaseRequest {
+struct SearchRequest: RequestProtocol {
     var name: String
     
     var baseURL: String {
@@ -18,7 +18,7 @@ struct SearchRequest: BaseRequest {
         return "/search/shows"
     }
     
-    var method: BaseMethod {
+    var method: HTTPMethod {
         return .GET
     }
     

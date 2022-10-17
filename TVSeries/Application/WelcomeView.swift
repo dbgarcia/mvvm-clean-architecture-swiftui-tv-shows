@@ -13,7 +13,7 @@ struct WelcomeView: View {
         
         TabView {
             
-            TVShowsView(viewModel: ShowsListViewModel())
+            ShowsListView(viewModel: ShowsListViewModel())
                 .tabItem {
                     Label("Shows", systemImage: "tv")
                 }

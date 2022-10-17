@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EpisodesRequest: BaseRequest {
+struct EpisodesRequest: RequestProtocol {
     var idShow: Int
     
     var baseURL: String {
@@ -18,7 +18,7 @@ struct EpisodesRequest: BaseRequest {
         return "/shows/\(idShow)/episodes"
     }
     
-    var method: BaseMethod {
+    var method: HTTPMethod {
         return .GET
     }
     

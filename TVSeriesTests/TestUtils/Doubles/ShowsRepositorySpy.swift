@@ -11,16 +11,16 @@ import Foundation
 
 final class ShowsRepositorySpy: ShowsRepositoryProtocol {
     
-    var shows: [Showable] = []
+    var showsReturned: [Showable] = []
     
     private(set) var pagePassed: Int = 0
     private(set) var currentPage: Int = 0
     private(set) var fetchShowCalled: Bool = false
     
-    func fetchShows(of page: Int) async throws -> [Showable] {
+    func getShows(page: Int) async throws -> [Showable] {
         fetchShowCalled = true
         currentPage += 1
         pagePassed = page
-        return shows
+        return showsReturned
     }
 }
